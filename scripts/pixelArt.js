@@ -46,9 +46,30 @@ function randColor() {
 }
 
 // prepare buttons
+const changePaletteBtn = document.getElementById("change-palette");
+const printBtn = document.getElementById("print-btn");
+const clearBtn = document.getElementById("clear-btn");
 
+changePaletteBtn.addEventListener("click", changePalette);
 
+function changePalette() {
+    paletteColors.forEach(addRandomColor);
+}
 
+clearBtn.addEventListener("click", clearWorkArea);
+
+function clearWorkArea() {
+    let pixels = document.querySelectorAll(".pixel");
+    pixels.forEach(clear);
+
+    function clear(element) {
+        element.style.background = "#555";
+    }
+}
+
+printBtn.addEventListener("click", () => {
+    window.print();
+});
 
 
 
